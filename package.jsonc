@@ -1,0 +1,39 @@
+{
+  "name": "myiucsheets-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+   "scripts": {
+    // Démarre le serveur Node avec Nodemon
+    "dev:server": "nodemon",
+    // Lance un script de jobs (ex: nettoyage, cron, migration)
+    "dev:jobs": "ts-node -r tsconfig-paths/register src/jobs/cleanup.ts",
+    // Lance serveur + jobs en parallèle avec concurrently
+    "dev": "concurrently -k -n \"SERVER,JOBS\" -c \"bgBlue.bold,bgGreen.bold\" \"pnpm run dev:server\" \"pnpm run dev:jobs\"",
+    // Compile le projet TS
+    "build": "tsc",
+    // Démarre le build Node classique
+    "start": "node dist/index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "nodemon": "^3.1.10",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.55.0",
+    "@types/express": "^5.0.3",
+    "class-validator": "^0.14.2",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "reflect-metadata": "^0.2.2",
+    "ts-node": "^10.9.2",
+    "tsyringe": "^4.10.0",
+    "typescript": "^5.9.2"
+  }
+}

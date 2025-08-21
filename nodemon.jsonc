@@ -1,0 +1,14 @@
+{
+  // Dossiers à surveiller pour relancer le serveur
+  "watch": [
+    "src"
+  ],
+  // Extensions de fichiers à surveiller
+  "ext": "ts",
+  // Ignorer le dossier de build
+  "ignore": [
+    "dist"
+  ],
+  // Commande à exécuter lors d’un changement
+  "exec": "ts-node -r tsconfig-paths/register src/index.ts"
+}
